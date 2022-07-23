@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitcoinPkCreatorWorker", "BitcoinPkCreatorWorker\BitcoinPkCreatorWorker.csproj", "{1DA7D04E-F297-4E4B-9A79-EA85583A45F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MongoDbQueueService", "MongoDbQueueService\MongoDbQueueService.csproj", "{20CF1F61-84D6-40E5-AC5E-0E512D7DE877}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkerUtilitiesService", "WorkerUtilitiesService\WorkerUtilitiesService.csproj", "{9308353F-D320-40EA-9D99-56C28E6E5C6B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1DA7D04E-F297-4E4B-9A79-EA85583A45F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DA7D04E-F297-4E4B-9A79-EA85583A45F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DA7D04E-F297-4E4B-9A79-EA85583A45F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DA7D04E-F297-4E4B-9A79-EA85583A45F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20CF1F61-84D6-40E5-AC5E-0E512D7DE877}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20CF1F61-84D6-40E5-AC5E-0E512D7DE877}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20CF1F61-84D6-40E5-AC5E-0E512D7DE877}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20CF1F61-84D6-40E5-AC5E-0E512D7DE877}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9308353F-D320-40EA-9D99-56C28E6E5C6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9308353F-D320-40EA-9D99-56C28E6E5C6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9308353F-D320-40EA-9D99-56C28E6E5C6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9308353F-D320-40EA-9D99-56C28E6E5C6B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
