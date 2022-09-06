@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using WorkerUtilitiesService;
+// using WorkerUtilitiesService;
 
 namespace BitcoinPkCreatorWorker
 {
@@ -29,7 +29,7 @@ namespace BitcoinPkCreatorWorker
                     // CollectConfiguration(services);         
 
                     services.AddSingleton<IPublicKeyCreatorService, PublicKeyCreatorService>();
-                    services.AddSingleton<IWorkerLifeCycleService, WorkerLifeCycleService>();
+                    // services.AddSingleton<IWorkerLifeCycleService, WorkerLifeCycleService>();
 
                     services.AddHostedService<BitcoinPkCreatorWorker>();
 

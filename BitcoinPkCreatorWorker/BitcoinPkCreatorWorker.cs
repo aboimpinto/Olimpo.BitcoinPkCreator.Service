@@ -4,7 +4,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using MongoDbQueueService;
 using MongoDbQueueService.Configuration;
-using WorkerUtilitiesService;
+// using WorkerUtilitiesService;
 
 namespace BitcoinPkCreatorWorker
 {
@@ -17,15 +17,15 @@ namespace BitcoinPkCreatorWorker
         private ISubscriber _subscriber;
         private IPublisher _publisher;
         private readonly IPublicKeyCreatorService _publicKeyCreatorService;
-        private readonly IWorkerLifeCycleService _workerLifeCycleService;
+        // private readonly IWorkerLifeCycleService _workerLifeCycleService;
 
         public BitcoinPkCreatorWorker(
             IPublicKeyCreatorService publicKeyCreatorService,
-            IWorkerLifeCycleService workerLifeCycleService,
+            // IWorkerLifeCycleService workerLifeCycleService,
             ILogger<BitcoinPkCreatorWorker> logger)
         {
             this._publicKeyCreatorService = publicKeyCreatorService;
-            this._workerLifeCycleService = workerLifeCycleService;
+            // this._workerLifeCycleService = workerLifeCycleService;
             this._logger = logger;
 
             this.ReadConfigurations();
@@ -47,22 +47,24 @@ namespace BitcoinPkCreatorWorker
         {
             this._logger.LogInformation("Worker started at: {0}", DateTimeOffset.Now);
 
-            await this._workerLifeCycleService
-                .StartWorker()
-                .ConfigureAwait(false);
+            // await this._workerLifeCycleService
+            //     .StartWorker()
+            //     .ConfigureAwait(false);
 
             this._publicKeyCreatorService.OnNewPublicAddress
                 .Subscribe(async x => 
                 {
-                    // await this._publisher.SendAsync<PublicAddress>(x);
+                    await this._publisher.SendAsync<PublicAddress>(x);
                 });
 
             var queueSubscriber = this._subscriber
-            .SubscribeQueueCollection<PrivateKeyAddress>(stoppingToken)
-            .Subscribe(x => 
-            {
-                this.CreatePublicKeys(x.PrivateKeyBytes);
-            });
+                .SubscribeQueueCollection<PrivateKeyAddress>(stoppingToken)
+                .Subscribe(x => 
+                {
+                    this.CreatePublicKeys(x.Payload.PrivateKeyBytes);
+
+                    x.ProcessSucessful = false;
+                });
         }
 
         private void ReadConfigurations()

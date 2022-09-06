@@ -24,17 +24,17 @@ namespace MongoDbQueueService
                 client.Settings.MaxConnectionPoolSize / 2);
         }
 
-        public Task SendAsync<T>(T payload, int priority = 0)
+        public Task SendAsync<T>(T payload, int priority)
         {
-            return this.Send(JsonSerializer.Serialize<T>(payload), priority);
+            return this.SendAsync(JsonSerializer.Serialize<T>(payload), priority);
         }
 
-        public async Task Send(string payload, int priority = 0)
+        public async Task SendAsync(string payload, int priority = 0)
         {
             var item = new QueueCollection
             {
                 Payload = BsonDocument.Parse(payload),
-                LastTimeChanged = DateTime.Now,
+                LastTimeChanged = DateTime.UtcNow,
                 Priority = priority,
                 WorkerName = string.Empty,
                 Processed = false
