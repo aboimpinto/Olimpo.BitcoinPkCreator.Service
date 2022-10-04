@@ -1,0 +1,1 @@
+docker run -v $(pwd)/myWorkersConfigurations/PkCreator/WORKER_1:/settings --net=myNetwork  -itd pkcreator 

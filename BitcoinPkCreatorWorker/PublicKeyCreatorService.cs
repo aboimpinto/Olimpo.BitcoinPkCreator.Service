@@ -77,9 +77,15 @@ namespace BitcoinPkCreatorWorker
 
         private void ReadConfigurations()
         {
+            var appSettingFile = "appsettings.json";
+
+            #if !DEBUG
+            appSettingFile = "/settings/appsettings.json";
+            #endif
+
             var configuration = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: false)
+                .AddJsonFile(appSettingFile, optional: true, reloadOnChange: false)
                 .Build();
 
             this._pkDatabaseSettings = new PkDatabaseSettings();
