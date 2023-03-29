@@ -31,7 +31,7 @@ namespace BitcoinPkCreatorWorker
                     services.AddSingleton<IPublicKeyCreatorService, PublicKeyCreatorService>();
                     // services.AddSingleton<IWorkerLifeCycleService, WorkerLifeCycleService>();
 
-                    services.AddHostedService<BitcoinPkCreatorWorker>();
+                    services.AddHostedService<BitcoinPublicKeyCreatorWorker>();
 
                 });
 
