@@ -10,13 +10,15 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Hosting.Systemd" Version="*" />
     <PackageReference Include="MongoDB.Driver" Version="*" />
-    <!-- <PackageReference Include="MongoDbQueueService" Version="*" /> -->
+    <PackageReference Include="MongoDbQueueService" Version="*" />
     <PackageReference Include="NBitcoin" Version="7.0.8" />
     <PackageReference Include="System.Diagnostics.Debug" Version="*" />
   </ItemGroup>
 
+  <!-- 
   <ItemGroup>
     <ProjectReference Include="..\..\MongoDbQueueService\MongoDbQueueService\MongoDbQueueService.csproj" />
-  </ItemGroup>
+  </ItemGroup> 
+  -->
 
 </Project>

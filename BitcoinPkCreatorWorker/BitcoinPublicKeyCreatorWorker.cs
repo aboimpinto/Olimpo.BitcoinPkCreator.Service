@@ -20,8 +20,16 @@ namespace BitcoinPkCreatorWorker
             this._publicKeyCreatorService = publicKeyCreatorService;
             this._logger = logger;
 
-            this._subscriber = new Subscriber(true);
-            this._publisher = new Publisher(true);
+            var debugMode = false;
+
+#if DEBUG
+            debugMode = true;
+#endif
+
+            this._logger.LogInformation($"DebuggerMode: {debugMode}");
+
+            this._subscriber = new Subscriber(debugMode);
+            this._publisher = new Publisher(debugMode);
         }
 
         protected override Task ExecuteAsync(CancellationToken stoppingToken)
